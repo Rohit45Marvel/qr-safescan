@@ -542,6 +542,560 @@
       .contact {
         padding: 30px;
       }
+
+      .screenshot-gallery {
+        gap: 20px;
+      }
+
+      .phone-mockup {
+        width: 220px;
+      }
+
+      .phone-screen img {
+        height: 400px;
+      }
+    }
+
+    /* Screenshots Gallery */
+    .screenshots {
+      text-align: center;
+      max-width: 1400px;
+    }
+
+    .screenshot-gallery {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      flex-wrap: wrap;
+      margin-top: 50px;
+      perspective: 1000px;
+    }
+
+    .phone-mockup {
+      position: relative;
+      width: 260px;
+      transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      animation: floatIn 0.8s ease forwards;
+      opacity: 0;
+    }
+
+    .phone-mockup:nth-child(1) { animation-delay: 0.1s; }
+    .phone-mockup:nth-child(2) { animation-delay: 0.2s; }
+    .phone-mockup:nth-child(3) { animation-delay: 0.3s; }
+    .phone-mockup:nth-child(4) { animation-delay: 0.4s; }
+
+    @keyframes floatIn {
+      from {
+        opacity: 0;
+        transform: translateY(60px) rotateX(10deg);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0) rotateX(0);
+      }
+    }
+
+    .phone-mockup:hover {
+      transform: translateY(-20px) scale(1.05);
+      z-index: 10;
+    }
+
+    .phone-frame {
+      background: linear-gradient(145deg, #1a1a2e, #16213e);
+      border-radius: 45px;
+      padding: 10px;
+      box-shadow: 
+        0 30px 60px rgba(0, 0, 0, 0.4),
+        0 0 0 2px rgba(255, 255, 255, 0.1),
+        inset 0 0 30px rgba(0, 0, 0, 0.3);
+      position: relative;
+      transition: all 0.4s ease;
+    }
+
+    .phone-frame::before {
+      content: "";
+      position: absolute;
+      top: 12px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 90px;
+      height: 28px;
+      background: #0d0d15;
+      border-radius: 20px;
+      z-index: 10;
+    }
+
+    .phone-frame::after {
+      content: "";
+      position: absolute;
+      top: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 12px;
+      height: 12px;
+      background: radial-gradient(circle, #2a2a4a 30%, #1a1a2e 70%);
+      border-radius: 50%;
+      z-index: 11;
+      box-shadow: 0 0 5px rgba(0, 86, 210, 0.3);
+    }
+
+    .phone-screen {
+      background: #000;
+      border-radius: 38px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .phone-screen::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, transparent 50%);
+      pointer-events: none;
+      z-index: 5;
+    }
+
+    .phone-screen img {
+      width: 100%;
+      height: 520px;
+      object-fit: cover;
+      object-position: top;
+      display: block;
+      transition: transform 0.5s ease;
+    }
+
+    .phone-mockup:hover .phone-screen img {
+      transform: scale(1.02);
+    }
+
+    .phone-mockup:hover .phone-frame {
+      box-shadow: 
+        0 40px 80px rgba(0, 58, 143, 0.4),
+        0 0 0 3px rgba(0, 86, 210, 0.4),
+        0 0 40px rgba(0, 86, 210, 0.2),
+        inset 0 0 30px rgba(0, 0, 0, 0.3);
+    }
+
+    .screenshot-label {
+      margin-top: 25px;
+      font-weight: 700;
+      color: var(--epita-blue);
+      font-size: 1.15em;
+      transition: color 0.3s ease;
+    }
+
+    .phone-mockup:hover .screenshot-label {
+      color: var(--epita-accent);
+    }
+
+    .screenshot-desc {
+      color: #5a6b7d;
+      font-size: 0.95em;
+      margin-top: 8px;
+      opacity: 0.8;
+      transition: opacity 0.3s ease;
+    }
+
+    .phone-mockup:hover .screenshot-desc {
+      opacity: 1;
+    }
+
+    /* Floating animation for idle state */
+    @keyframes subtleFloat {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-8px); }
+    }
+
+    .phone-mockup:not(:hover) {
+      animation: subtleFloat 4s ease-in-out infinite, floatIn 0.8s ease forwards;
+    }
+
+    .phone-mockup:nth-child(1):not(:hover) { animation-delay: 0s, 0.1s; }
+    .phone-mockup:nth-child(2):not(:hover) { animation-delay: 0.5s, 0.2s; }
+    .phone-mockup:nth-child(3):not(:hover) { animation-delay: 1s, 0.3s; }
+    .phone-mockup:nth-child(4):not(:hover) { animation-delay: 1.5s, 0.4s; }
+
+    /* How It Works - Step by Step */
+    .how-it-works {
+      text-align: center;
+      max-width: 1400px;
+      padding: 0 40px;
+    }
+
+    .how-it-works h2 {
+      margin-bottom: 20px;
+    }
+
+    .how-it-works > p {
+      color: #5a6b7d;
+      max-width: 700px;
+      margin: 0 auto 60px;
+      font-size: 1.15em;
+      line-height: 1.7;
+    }
+
+    .steps-container {
+      display: flex;
+      flex-direction: column;
+      gap: 80px;
+    }
+
+    .step {
+      display: flex;
+      align-items: center;
+      gap: 60px;
+      position: relative;
+    }
+
+    .step:nth-child(even) {
+      flex-direction: row-reverse;
+    }
+
+    .step-content {
+      flex: 1;
+      text-align: left;
+      padding: 40px;
+      background: white;
+      border-radius: 24px;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.08);
+      position: relative;
+      overflow: hidden;
+      transition: all 0.4s ease;
+    }
+
+    .step-content::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 5px;
+      height: 100%;
+      background: linear-gradient(180deg, var(--epita-blue), var(--epita-accent));
+    }
+
+    .step:nth-child(even) .step-content::before {
+      left: auto;
+      right: 0;
+    }
+
+    .step-content:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 30px 60px rgba(0, 0, 0, 0.12);
+    }
+
+    .step-number {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 60px;
+      height: 60px;
+      background: linear-gradient(135deg, var(--epita-blue), var(--epita-accent));
+      color: white;
+      font-size: 1.8em;
+      font-weight: 800;
+      border-radius: 50%;
+      margin-bottom: 20px;
+      box-shadow: 0 10px 30px rgba(0, 86, 210, 0.3);
+      animation: numberPulse 3s ease-in-out infinite;
+    }
+
+    @keyframes numberPulse {
+      0%, 100% { box-shadow: 0 10px 30px rgba(0, 86, 210, 0.3); }
+      50% { box-shadow: 0 15px 40px rgba(0, 86, 210, 0.5); }
+    }
+
+    .step-content h3 {
+      font-size: 1.6em;
+      color: var(--epita-blue);
+      margin: 0 0 15px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .step-content h3 span {
+      font-size: 1.2em;
+    }
+
+    .step-content p {
+      color: #5a6b7d;
+      font-size: 1.1em;
+      line-height: 1.8;
+      margin: 0;
+    }
+
+    .step-phone {
+      flex: 0 0 280px;
+      position: relative;
+    }
+
+    .step-phone .phone-frame {
+      background: linear-gradient(145deg, #1a1a2e, #16213e);
+      border-radius: 45px;
+      padding: 12px;
+      box-shadow: 
+        0 40px 80px rgba(0, 0, 0, 0.35),
+        0 0 0 2px rgba(255, 255, 255, 0.1),
+        inset 0 0 30px rgba(0, 0, 0, 0.3);
+      position: relative;
+      transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+
+    .step-phone .phone-frame::before {
+      content: "";
+      position: absolute;
+      top: 14px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100px;
+      height: 30px;
+      background: #0d0d15;
+      border-radius: 20px;
+      z-index: 10;
+    }
+
+    .step-phone .phone-frame::after {
+      content: "";
+      position: absolute;
+      top: 22px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 12px;
+      height: 12px;
+      background: radial-gradient(circle, #2a2a4a 30%, #1a1a2e 70%);
+      border-radius: 50%;
+      z-index: 11;
+    }
+
+    .step-phone .phone-screen {
+      background: #000;
+      border-radius: 38px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .step-phone .phone-screen::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, transparent 50%);
+      pointer-events: none;
+      z-index: 5;
+    }
+
+    .step-phone .phone-screen img {
+      width: 100%;
+      height: 560px;
+      object-fit: cover;
+      object-position: top;
+      display: block;
+      transition: transform 0.5s ease;
+    }
+
+    .step:hover .step-phone .phone-frame {
+      transform: translateY(-10px) rotate(2deg);
+      box-shadow: 
+        0 50px 100px rgba(0, 58, 143, 0.35),
+        0 0 0 3px rgba(0, 86, 210, 0.4),
+        0 0 50px rgba(0, 86, 210, 0.15),
+        inset 0 0 30px rgba(0, 0, 0, 0.3);
+    }
+
+    .step:nth-child(even):hover .step-phone .phone-frame {
+      transform: translateY(-10px) rotate(-2deg);
+    }
+
+    .step:hover .step-phone .phone-screen img {
+      transform: scale(1.03);
+    }
+
+    /* Connecting line between steps */
+    .step::after {
+      content: "";
+      position: absolute;
+      bottom: -60px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 4px;
+      height: 40px;
+      background: linear-gradient(180deg, var(--epita-accent), transparent);
+      border-radius: 2px;
+    }
+
+    .step:last-child::after {
+      display: none;
+    }
+
+    /* Result badges */
+    .result-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 20px;
+      border-radius: 50px;
+      font-weight: 600;
+      font-size: 0.95em;
+      margin-top: 15px;
+    }
+
+    .result-badge.safe {
+      background: linear-gradient(135deg, #d1fae5, #a7f3d0);
+      color: #065f46;
+    }
+
+    .result-badge.danger {
+      background: linear-gradient(135deg, #fee2e2, #fecaca);
+      color: #991b1b;
+    }
+
+    /* Results section */
+    .results-section {
+      margin-top: 100px;
+      text-align: center;
+    }
+
+    .results-section h3 {
+      font-size: 1.8em;
+      color: var(--epita-blue);
+      margin-bottom: 50px;
+    }
+
+    .results-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 40px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .result-card {
+      background: white;
+      border-radius: 24px;
+      padding: 30px;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.08);
+      transition: all 0.4s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .result-card.safe-card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 5px;
+      background: linear-gradient(90deg, #10b981, #34d399);
+    }
+
+    .result-card.danger-card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 5px;
+      background: linear-gradient(90deg, #ef4444, #f87171);
+    }
+
+    .result-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 30px 60px rgba(0, 0, 0, 0.12);
+    }
+
+    .result-card h4 {
+      font-size: 1.3em;
+      margin: 0 0 15px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    .result-card.safe-card h4 {
+      color: #059669;
+    }
+
+    .result-card.danger-card h4 {
+      color: #dc2626;
+    }
+
+    .result-card p {
+      color: #5a6b7d;
+      font-size: 0.95em;
+      margin-bottom: 20px;
+    }
+
+    .result-card .mini-phone {
+      width: 180px;
+      margin: 0 auto;
+    }
+
+    .result-card .mini-phone .phone-frame {
+      padding: 8px;
+      border-radius: 30px;
+    }
+
+    .result-card .mini-phone .phone-frame::before {
+      top: 10px;
+      width: 60px;
+      height: 20px;
+    }
+
+    .result-card .mini-phone .phone-frame::after {
+      top: 15px;
+      width: 8px;
+      height: 8px;
+    }
+
+    .result-card .mini-phone .phone-screen {
+      border-radius: 25px;
+    }
+
+    .result-card .mini-phone .phone-screen img {
+      height: 350px;
+    }
+
+    /* Responsive for How It Works */
+    @media (max-width: 900px) {
+      .step {
+        flex-direction: column !important;
+        gap: 30px;
+      }
+
+      .step-content {
+        text-align: center;
+      }
+
+      .step-content::before {
+        width: 100%;
+        height: 5px;
+        left: 0 !important;
+        right: 0 !important;
+        top: 0;
+      }
+
+      .step-content h3 {
+        justify-content: center;
+      }
+
+      .step-phone {
+        flex: 0 0 auto;
+      }
+
+      .step::after {
+        display: none;
+      }
+
+      .results-grid {
+        grid-template-columns: 1fr;
+      }
     }
   </style>
 </head>
@@ -602,6 +1156,53 @@
   </div>
 </section>
 
+<section class="section-animate screenshots">
+  <h2>App in Action</h2>
+  <p style="color: #5a6b7d; max-width: 700px; margin: 0 auto 10px; font-size: 1.15em;">Experience QR-SafeScan — Real-time threat detection with intuitive safety verdicts at your fingertips.</p>
+  
+  <div class="screenshot-gallery">
+    <div class="phone-mockup">
+      <div class="phone-frame">
+        <div class="phone-screen">
+          <img src="screenshot1.png" alt="QR Scanner Screen">
+        </div>
+      </div>
+      <p class="screenshot-label">📷 QR Scanner</p>
+      <p class="screenshot-desc">Point & scan any QR code</p>
+    </div>
+
+    <div class="phone-mockup">
+      <div class="phone-frame">
+        <div class="phone-screen">
+          <img src="screenshot2.png" alt="URL Analysis">
+        </div>
+      </div>
+      <p class="screenshot-label">🔍 URL Analysis</p>
+      <p class="screenshot-desc">Deep threat intelligence scan</p>
+    </div>
+
+    <div class="phone-mockup">
+      <div class="phone-frame">
+        <div class="phone-screen">
+          <img src="screenshot3.png" alt="Safe Result">
+        </div>
+      </div>
+      <p class="screenshot-label">✅ Safe Verdict</p>
+      <p class="screenshot-desc">Green light — proceed safely</p>
+    </div>
+
+    <div class="phone-mockup">
+      <div class="phone-frame">
+        <div class="phone-screen">
+          <img src="screenshot4.png" alt="Threat Detected">
+        </div>
+      </div>
+      <p class="screenshot-label">🚨 Threat Alert</p>
+      <p class="screenshot-desc">Phishing attempt blocked</p>
+    </div>
+  </div>
+</section>
+
 <section class="section-animate">
   <h2>Project Team</h2>
   
@@ -658,4 +1259,5 @@
   <p>© 2026 EPITA Final Year Project</p>
 </footer>
 
+</body>
 </html>
