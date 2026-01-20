@@ -949,6 +949,11 @@
       color: #065f46;
     }
 
+    .result-badge.warning {
+      background: linear-gradient(135deg, #fef3c7, #fde68a);
+      color: #92400e;
+    }
+
     .result-badge.danger {
       background: linear-gradient(135deg, #fee2e2, #fecaca);
       color: #991b1b;
@@ -1446,18 +1451,35 @@
       </div>
     </div>
 
-    <!-- Step 4: Malicious Detected -->
+    <!-- Step 4: Suspicious URL -->
     <div class="step">
       <div class="step-content">
         <div class="step-number">4</div>
-        <h3><span>🚨</span> Threat Detected</h3>
-        <p>If a malicious or phishing URL is detected, the app immediately warns you with a red alert. The threat is blocked before you can access the dangerous content.</p>
-        <div class="result-badge danger">⚠️ Phishing Attempt Blocked</div>
+        <h3><span>⚠️</span> Suspicious URL</h3>
+        <p>When a URL shows uncertain signals, the app displays a yellow "Suspicious" warning. Multiple security APIs couldn't fully verify the link — proceed with caution or avoid it entirely.</p>
+        <div class="result-badge warning">⚠️ Suspicious - Use Caution</div>
       </div>
       <div class="step-phone">
         <div class="phone-frame">
           <div class="phone-screen">
-            <img src="step4-malicious.png" alt="Step 4: Malicious Detected">
+            <img src="step4-suspicious.png" alt="Step 4: Suspicious URL">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Step 5: Malicious Detected -->
+    <div class="step">
+      <div class="step-content">
+        <div class="step-number">5</div>
+        <h3><span>🚨</span> Threat Detected</h3>
+        <p>If a malicious or phishing URL is detected, the app immediately warns you with a red alert. The threat is blocked before you can access the dangerous content.</p>
+        <div class="result-badge danger">🚨 Phishing Attempt Blocked</div>
+      </div>
+      <div class="step-phone">
+        <div class="phone-frame">
+          <div class="phone-screen">
+            <img src="step5-malicious.png" alt="Step 5: Malicious Detected">
           </div>
         </div>
       </div>
@@ -1483,7 +1505,7 @@
 
   <div class="qr-challenge">
     <h3>🔍 QR Code Challenge</h3>
-    <p>Scan any of these QR codes with QR-SafeScan and discover which ones are <strong style="color: #10b981;">safe</strong> and which are <strong style="color: #ef4444;">malicious</strong>!</p>
+    <p>Scan any of these QR codes with QR-SafeScan and discover which ones are <strong style="color: #10b981;">safe</strong>, <strong style="color: #f59e0b;">suspicious</strong>, or <strong style="color: #ef4444;">malicious</strong>!</p>
     
     <div class="qr-grid">
       <div class="qr-card">
@@ -1517,7 +1539,7 @@
     </div>
 
     <div class="challenge-hint">
-      <p>💡 <span>Hint:</span> Some of these QR codes lead to phishing sites. Can you spot them all?</p>
+      <p>💡 <span>Hint:</span> Some QR codes are safe, some are suspicious, and some lead to phishing sites. Can you identify them all?</p>
     </div>
   </div>
 </section>
